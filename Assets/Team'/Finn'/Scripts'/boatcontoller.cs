@@ -47,7 +47,7 @@ public class boatcontoller : MonoBehaviour
 
         // Turning
         rb.AddTorque(Vector3.up * steering * rotationSpeed * Time.fixedDeltaTime);
-
+        rb.angularVelocity = Vector3.ClampMagnitude(rb.angularVelocity, rotationSpeed * 0.1f);
         // Accelerating
         rb.AddRelativeForce(Vector3.up * currentSpeed * Time.fixedDeltaTime);
     }
