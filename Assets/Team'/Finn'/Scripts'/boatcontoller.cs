@@ -20,7 +20,7 @@ public class boatcontoller : MonoBehaviour
     public float speedcurrent;
     public float neededY;
     public string direction = "forward";
-    private worldtolocal worldtolocals;
+    public worldtolocal worldtolocal;
     private void Awake()
     {
         // Respect an inspector-assigned Rigidbody first
@@ -53,12 +53,15 @@ public class boatcontoller : MonoBehaviour
         steering = context.ReadValue<float>();
         Debug.Log("Steering input: " + steering);
     }
-
+    public void Update()
+    {
+        worldtolocal = GetComponent<worldtolocal>();
+        neededY = transform.rotation.y * 36;
+        worldtolocal.useLocalY = neededY;
+    }
     private void FixedUpdate()
     {
-        worldtolocals = GetComponent<worldtolocal>();
-        neededY = transform.rotation.y;
-        worldtolocals.useLocalY = neededY;
+      
         if (rb == null) return;
 
         rb.isKinematic = false;
