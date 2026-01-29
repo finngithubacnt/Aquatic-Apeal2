@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722757215804778082}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.000000119209275}
+  m_LocalRotation: {x: -0.000009363662, y: 0.995864, z: -0.09085698, w: 0.0000009739894}
   m_LocalPosition: {x: -0.000002861023, y: 1.840003, z: 10.000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1271,7 +1271,7 @@ GameObject:
   - component: {fileID: 6862463891534218536}
   - component: {fileID: 4367776053268650356}
   - component: {fileID: 6688395857155022741}
-  - component: {fileID: 1975932486808862771}
+  - component: {fileID: 963695967149079066}
   m_Layer: 0
   m_Name: Third Person Aim Camera
   m_TagString: Untagged
@@ -1287,7 +1287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6490111122735055560}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000084293696, y: 0.7071068, z: 0.000000084293696, w: -0.7071068}
+  m_LocalRotation: {x: -0.0000059323906, y: 0.7684277, z: 0.63993657, w: 0.0000073098195}
   m_LocalPosition: {x: -0.000002861023, y: -10.000003, z: 1.8400021}
   m_LocalScale: {x: 1, y: 0.99999976, z: 0.99999976}
   m_ConstrainProportionsScale: 0
@@ -1322,7 +1322,7 @@ MonoBehaviour:
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
-    Dutch: -90
+    Dutch: 0
     ModeOverride: 2
     PhysicalProperties:
       GateFit: 2
@@ -1351,12 +1351,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackerSettings:
     BindingMode: 3
-    PositionDamping: {x: 0.07, y: 2.42, z: 4.53}
+    PositionDamping: {x: 2, y: 2.5, z: 0}
     AngularDampingMode: 0
-    RotationDamping: {x: 0.07, y: 2.96, z: 1.63}
+    RotationDamping: {x: 3, y: 0.5, z: 0}
     QuaternionDamping: 5.8
   FollowOffset: {x: 1.84, y: -10, z: 0}
---- !u!114 &1975932486808862771
+--- !u!114 &963695967149079066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1365,16 +1365,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 6490111122735055560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0544e7b14d134a1449e61175446cfb95, type: 3}
+  m_Script: {fileID: 11500000, guid: f38bda98361e1de48a4ca2bd86ea3c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplyAfter: 3
-  Tilt: -90
-  Pan: 0
-  Dutch: 0
-  ZoomScale: 1
-  FollowAttachment: 1
-  LookAtAttachment: 1
+  Composition:
+    ScreenPosition: {x: 0, y: 0}
+    DeadZone:
+      Enabled: 0
+      Size: {x: 0.2, y: 0.2}
+    HardLimits:
+      Enabled: 0
+      Size: {x: 0.8, y: 0.8}
+      Offset: {x: 0, y: 0}
+  CenterOnActivate: 1
+  TargetOffset: {x: 0, y: 0, z: 0}
+  Damping: {x: 0.5, y: 0.5}
+  Lookahead:
+    Enabled: 0
+    Time: 0
+    Smoothing: 0
+    IgnoreY: 0
 --- !u!1 &6539699740359198480
 GameObject:
   m_ObjectHideFlags: 0
