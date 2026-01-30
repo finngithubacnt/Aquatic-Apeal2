@@ -1,4 +1,3 @@
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,8 +9,7 @@ public class boatcontoller : MonoBehaviour
     public float rotationSpeed = 100f;
     public float speedLimit = 20f;
 
-    // if you want to explicitly assign the Rigidbody in the inspector you can,
-    // otherwise Awake will search on this GameObject, its children and parents.
+    
     public Rigidbody rb;
     
 
@@ -21,6 +19,8 @@ public class boatcontoller : MonoBehaviour
     public float neededY;
     public string direction = "forward";
     public worldtolocal worldtolocal;
+    public bool canMove = false;
+    private NewFloatingObject floatingObject;
     private void Awake()
     {
         // Respect an inspector-assigned Rigidbody first
@@ -55,6 +55,18 @@ public class boatcontoller : MonoBehaviour
     }
     public void Update()
     {
+        floatingObject = GetComponentInChildren<NewFloatingObject>();
+
+        if (floatingObject != null && floatingObject.isUnderwater)
+        {
+            Debug.Log("Boat is underwater, can move.");
+            canMove = true;
+        }
+        else
+        {
+            canMove = false;
+        }
+
         worldtolocal = GetComponent<worldtolocal>();
         neededY = transform.rotation.y * 36;
         worldtolocal.useLocalY = neededY;
@@ -65,27 +77,27 @@ public class boatcontoller : MonoBehaviour
         if (rb == null) return;
 
         rb.isKinematic = false;
+        if (canMove == true)
+        {
+            // forward backward movement
+            float currentSpeed = throttle > 0 ? speed : backSpeed;
 
-        // Forward & backward movement
-        float currentSpeed = throttle > 0 ? speed : backSpeed;
+            // Turning
+            rb.AddTorque(Vector3.up * steering * rotationSpeed * Time.fixedDeltaTime);
 
-        // Turning: apply yaw torque
-        rb.AddTorque(Vector3.up * steering * rotationSpeed * Time.fixedDeltaTime);
+            Vector3 localAngVel = transform.InverseTransformDirection(rb.angularVelocity);
 
-        // Only clamp pitch/roll angular velocity so yaw (steering) is not squashed.
-        // Convert world angular velocity to local space
-        Vector3 localAngVel = transform.InverseTransformDirection(rb.angularVelocity);
+            float maxAng = rotationSpeed * 0.1f;
+            // clamp X and Z (pitch/roll), preserve Y (yaw)
+            localAngVel.x = Mathf.Clamp(localAngVel.x, -maxAng, maxAng);
+            localAngVel.z = Mathf.Clamp(localAngVel.z, -maxAng, maxAng);
 
-        float maxAng = rotationSpeed * 0.1f;
-        // clamp X and Z (pitch/roll), preserve Y (yaw)
-        localAngVel.x = Mathf.Clamp(localAngVel.x, -maxAng, maxAng);
-        localAngVel.z = Mathf.Clamp(localAngVel.z, -maxAng, maxAng);
+            // Convert back to world space and assign
+            rb.angularVelocity = transform.TransformDirection(localAngVel);
 
-        // Convert back to world space and assign
-        rb.angularVelocity = transform.TransformDirection(localAngVel);
-
-        // Accelerating (relative to object). Keep existing axis (Vector3.up) if that is intended.
-        rb.AddRelativeForce(Vector3.up * currentSpeed * Time.fixedDeltaTime);
+            // Accelerating (relative to object). Keep existing axis (Vector3.up) if that is intended.
+            rb.AddRelativeForce(Vector3.up * currentSpeed * Time.fixedDeltaTime);
+        }
     }
 }
 

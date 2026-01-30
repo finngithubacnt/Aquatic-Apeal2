@@ -51,6 +51,7 @@ MonoBehaviour:
   waterDrag: 1
   waterAngularDrag: 0.75
   water: {fileID: 0}
+  isUnderwater: 0
 --- !u!1 &1363617191406182226
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722757215804778082}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000009363662, y: 0.995864, z: -0.09085698, w: 0.0000009739894}
+  m_LocalRotation: {x: 0.00000029547132, y: 0.995864, z: -0.09085698, w: 0.000000092747314}
   m_LocalPosition: {x: -0.000002861023, y: 1.840003, z: 10.000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -167,7 +168,7 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_Iso: 200
@@ -485,6 +486,7 @@ MonoBehaviour:
   waterDrag: 1
   waterAngularDrag: 0.75
   water: {fileID: 0}
+  isUnderwater: 0
 --- !u!1 &2929855061159162661
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +538,7 @@ MonoBehaviour:
   waterDrag: 1
   waterAngularDrag: 0.75
   water: {fileID: 0}
+  isUnderwater: 0
 --- !u!1 &3566208573214746808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1149,7 @@ MonoBehaviour:
   waterDrag: 1
   waterAngularDrag: 0.75
   water: {fileID: 0}
+  isUnderwater: 0
 --- !u!1 &6083458979728053322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,7 +1291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6490111122735055560}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0000059323906, y: 0.7684277, z: 0.63993657, w: 0.0000073098195}
+  m_LocalRotation: {x: 0.00000027451205, y: 0.7684277, z: 0.63993657, w: -0.00000014334753}
   m_LocalPosition: {x: -0.000002861023, y: -10.000003, z: 1.8400021}
   m_LocalScale: {x: 1, y: 0.99999976, z: 0.99999976}
   m_ConstrainProportionsScale: 0
@@ -1323,7 +1327,7 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 2
+    ModeOverride: 3
     PhysicalProperties:
       GateFit: 2
       SensorSize: {x: 21.946, y: 16.002}
@@ -1351,9 +1355,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackerSettings:
     BindingMode: 3
-    PositionDamping: {x: 2, y: 2.5, z: 0}
+    PositionDamping: {x: 2, y: 2.5, z: 0.24}
     AngularDampingMode: 0
-    RotationDamping: {x: 3, y: 0.5, z: 0}
+    RotationDamping: {x: 0.17, y: 0.72, z: 4.1}
     QuaternionDamping: 5.8
   FollowOffset: {x: 1.84, y: -10, z: 0}
 --- !u!114 &963695967149079066
@@ -1371,11 +1375,11 @@ MonoBehaviour:
   Composition:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
-      Enabled: 0
-      Size: {x: 0.2, y: 0.2}
+      Enabled: 1
+      Size: {x: 0.3, y: 0.3}
     HardLimits:
-      Enabled: 0
-      Size: {x: 0.8, y: 0.8}
+      Enabled: 1
+      Size: {x: 0.5, y: 0.5}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
@@ -2630,14 +2634,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8460347457238274557}
-  - {fileID: 8136104646985180067}
-  - {fileID: 8515296542366508054}
-  - {fileID: 7831597201932367470}
   - {fileID: 2933496292166173034}
   - {fileID: 3463968632864939090}
   - {fileID: 6232967365491322355}
   - {fileID: 5460855266207535855}
+  - {fileID: 8460347457238274557}
+  - {fileID: 8136104646985180067}
+  - {fileID: 8515296542366508054}
+  - {fileID: 7831597201932367470}
   - {fileID: 130815152738544643}
   - {fileID: 6862463891534218536}
   m_Father: {fileID: 0}
@@ -2767,6 +2771,7 @@ MonoBehaviour:
   neededY: 0
   direction: forward
   worldtolocal: {fileID: 0}
+  canMove: 1
 --- !u!114 &7239367820938509152
 MonoBehaviour:
   m_ObjectHideFlags: 0

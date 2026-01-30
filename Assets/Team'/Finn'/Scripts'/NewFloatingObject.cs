@@ -19,7 +19,7 @@ public class NewFloatingObject : MonoBehaviour
 
     WaterSearchParameters Search;
     WaterSearchResult SearchResult;
-
+    public bool isUnderwater;
     public void Start()
     {
         // Ensure we have a Rigidbody reference. Prefer parent (boat) if floaters are child objects.
@@ -57,6 +57,7 @@ public class NewFloatingObject : MonoBehaviour
         // If this point is underwater, apply buoyancy + drag
         if (transform.position.y < SearchResult.projectedPositionWS.y)
         {
+            isUnderwater = true;
             float displacementMulti = Mathf.Clamp01((SearchResult.projectedPositionWS.y - transform.position.y) / depthBefSub) * displacementAmt;
 
             // Buoyancy upward force (Acceleration)
@@ -76,6 +77,10 @@ public class NewFloatingObject : MonoBehaviour
             // Back to world space and apply angular velocity change (VelocityChange uses radians/sec change)
             Vector3 dampAngularWorld = transform.TransformDirection(localAngVel);
             rb.AddTorque(-dampAngularWorld * displacementMulti * waterAngularDrag * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        }
+        else
+        {
+            isUnderwater = false;
         }
     }
 }
