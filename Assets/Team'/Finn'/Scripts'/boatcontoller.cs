@@ -21,6 +21,9 @@ public class boatcontoller : MonoBehaviour
     public worldtolocal worldtolocal;
     public bool canMove = false;
     private NewFloatingObject floatingObject;
+    [Header("Effects")]
+    public GameObject Effects;
+    public GameObject IdleEffects;
     private void Awake()
     {
         // Respect an inspector-assigned Rigidbody first
@@ -70,6 +73,25 @@ public class boatcontoller : MonoBehaviour
         worldtolocal = GetComponent<worldtolocal>();
         neededY = transform.rotation.y * 36;
         worldtolocal.useLocalY = neededY;
+        IdleEffects = GameObject.FindGameObjectWithTag("IdleEffects");
+        Effects = GameObject.FindGameObjectWithTag("Effects");
+        if (steering != 0 | throttle != 0)
+        {
+            IdleEffects.SetActive(true);
+        }
+        else
+        {
+            IdleEffects.SetActive(false);
+        }
+
+        if (canMove == true && steering != 0 | canMove == true && throttle != 0)
+        {
+            Effects.SetActive(true);
+        }
+        else
+        {
+            Effects.SetActive(false);
+        }
     }
     private void FixedUpdate()
     {
@@ -98,6 +120,9 @@ public class boatcontoller : MonoBehaviour
             // Accelerating (relative to object). Keep existing axis (Vector3.up) if that is intended.
             rb.AddRelativeForce(Vector3.up * currentSpeed * Time.fixedDeltaTime);
         }
+
+      
+
     }
 }
 

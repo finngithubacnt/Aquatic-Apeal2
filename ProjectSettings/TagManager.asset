@@ -6,6 +6,8 @@ TagManager:
   tags:
   - water
   - Water
+  - Effects
+  - IdleEffects
   layers:
   - Default
   - TransparentFX
