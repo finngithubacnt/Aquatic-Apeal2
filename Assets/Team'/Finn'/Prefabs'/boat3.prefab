@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 554729892420503156}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 2.0562649, z: 0}
+  m_LocalPosition: {x: 0.5, y: 2.056, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3344368572871845663}
-  depthBefSub: 0.34
-  displacementAmt: 0.53
+  depthBefSub: 0.05
+  displacementAmt: 0.43
   floaters: 4
-  waterDrag: 1
-  waterAngularDrag: 0.75
+  waterDrag: 0.1
+  waterAngularDrag: 0.09
   water: {fileID: 0}
   isUnderwater: 0
 --- !u!1 &1363617191406182226
@@ -285,7 +285,7 @@ MonoBehaviour:
   fidelityFX2SuperResolutionSharpening: 0
   fsrOverrideSharpness: 0
   fsrSharpness: 0.92
-  exposureTarget: {fileID: 0}
+  exposureTarget: {fileID: 1363617191406182226}
   materialMipBias: 0
   m_RenderingPathCustomFrameSettings:
     bitDatas:
@@ -387,58 +387,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!1 &2161648183689530228
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9104250659345793269}
-  - component: {fileID: 3968798961349325074}
-  m_Layer: 0
-  m_Name: water
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9104250659345793269
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2161648183689530228}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0037, z: 0.0176}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1095857291907061381}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3968798961349325074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2161648183689530228}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ede582eab822e4ab05a6a5defb4d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleMode: 0
-  regionSize: {x: 5.64, y: 0.88}
-  amplitude: 1
-  surfaceFoamDimmer: 0.48
-  deepFoamDimmer: 0.86
-  resolution: {x: 256, y: 256}
-  updateMode: 2
-  material: {fileID: 2100000, guid: a8dbd1a63bb97d8498544e9fe6f15296, type: 2}
 --- !u!1 &2837726731101948383
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +413,7 @@ Transform:
   m_GameObject: {fileID: 2837726731101948383}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 2.0562649, z: 0}
+  m_LocalPosition: {x: -0.5, y: 2.056, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -484,11 +432,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3344368572871845663}
-  depthBefSub: 0.34
-  displacementAmt: 0.53
+  depthBefSub: 0.05
+  displacementAmt: 0.43
   floaters: 4
-  waterDrag: 1
-  waterAngularDrag: 0.75
+  waterDrag: 0.1
+  waterAngularDrag: 0.09
   water: {fileID: 0}
   isUnderwater: 0
 --- !u!1 &2929855061159162661
@@ -517,7 +465,7 @@ Transform:
   m_GameObject: {fileID: 2929855061159162661}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: -1.6767356, z: 0}
+  m_LocalPosition: {x: 0.5, y: -1.677, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -536,11 +484,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3344368572871845663}
-  depthBefSub: 0.34
-  displacementAmt: 0.53
+  depthBefSub: 0.05
+  displacementAmt: 0.43
   floaters: 4
-  waterDrag: 1
-  waterAngularDrag: 0.75
+  waterDrag: 0.1
+  waterAngularDrag: 0.09
   water: {fileID: 0}
   isUnderwater: 0
 --- !u!1 &3418003829928211426
@@ -690,8 +638,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9104250659345793269}
+  m_Children: []
   m_Father: {fileID: 8460347457238274557}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8951852601780094612
@@ -1459,7 +1406,7 @@ Transform:
   m_GameObject: {fileID: 5968604620770521289}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: -1.6767356, z: 0}
+  m_LocalPosition: {x: -0.5, y: -1.677, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1478,11 +1425,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3344368572871845663}
-  depthBefSub: 0.34
-  displacementAmt: 0.53
+  depthBefSub: 0.05
+  displacementAmt: 0.43
   floaters: 4
-  waterDrag: 1
-  waterAngularDrag: 0.75
+  waterDrag: 0.1
+  waterAngularDrag: 0.09
   water: {fileID: 0}
   isUnderwater: 0
 --- !u!1 &6075737649265892555
@@ -2950,7 +2897,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6b17274157b33bc45b6a40e7d4ff51fe, type: 2}
-  - {fileID: 2100000, guid: dff915f001a62ae44ae3be251e7aa194, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3003,7 +2949,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9223129577653451544}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.19
   m_Drag: 0.5
   m_AngularDrag: 2.32
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3034,9 +2980,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544cc0963fab6114584f3c383c3ccc6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3015.7
+  speed: 200
   backSpeed: 4
-  rotationSpeed: 1340
+  rotationSpeed: 500
   speedLimit: 99999
   rb: {fileID: 3344368572871845663}
   speedcurrent: 0
@@ -3136,7 +3082,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 0
-  smoothedPosition: {x: -13.05578, y: 0, z: 157.74191}
+  smoothedPosition: {x: 15.9, y: -0.3349878, z: -3.2}
 --- !u!2083052967 &9213455747930872695
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -3248,7 +3194,7 @@ SpringJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   m_Spring: 10
-  m_Damper: 0.2
+  m_Damper: 0.4
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -3273,7 +3219,7 @@ SpringJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   m_Spring: 10
-  m_Damper: 0.2
+  m_Damper: 0.4
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -3298,7 +3244,7 @@ SpringJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   m_Spring: 10
-  m_Damper: 0.2
+  m_Damper: 0.4
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -3323,7 +3269,7 @@ SpringJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   m_Spring: 10
-  m_Damper: 0.2
+  m_Damper: 0.4
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
