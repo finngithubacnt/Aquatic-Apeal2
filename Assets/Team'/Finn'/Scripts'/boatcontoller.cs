@@ -24,6 +24,8 @@ public class boatcontoller : MonoBehaviour
     [Header("Effects")]
     public GameObject Effects;
     public GameObject IdleEffects;
+    public bool idleEffects;
+    public bool effects;
     private void Awake()
     {
         // Respect an inspector-assigned Rigidbody first
@@ -69,28 +71,31 @@ public class boatcontoller : MonoBehaviour
         {
             canMove = false;
         }
-
+      
         worldtolocal = GetComponent<worldtolocal>();
         neededY = transform.rotation.y * 36;
         worldtolocal.useLocalY = neededY;
         IdleEffects = GameObject.FindGameObjectWithTag("IdleEffects");
         Effects = GameObject.FindGameObjectWithTag("Effects");
-        if (steering != 0 | throttle != 0)
+
+      
+       
+        if (steering != 0 || throttle != 0)
         {
-            IdleEffects.SetActive(true);
+           idleEffects = true;
         }
         else
         {
-            IdleEffects.SetActive(false);
+            idleEffects = false;
         }
 
-        if (canMove == true && steering != 0 | canMove == true && throttle != 0)
+        if (canMove == true && steering != 0 || canMove == true && throttle != 0)
         {
-            Effects.SetActive(true);
+            effects = true;
         }
         else
         {
-            Effects.SetActive(false);
+            effects = false;
         }
     }
     private void FixedUpdate()

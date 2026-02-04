@@ -7,21 +7,21 @@
             "actions": [
                 {
                     "name": "Throttle",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "8bb6ba82-82b0-4ac2-8a27-9f359f7f583e",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Steering",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "39bf1c18-589d-456a-8195-c8d18cfe01eb",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -59,6 +59,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "1D Axis",
+                    "id": "be45d1c0-455c-42b9-8286-b06cb87ddddb",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "6514e25f-2bd5-4dd3-ba94-1bf27001eadd",
+                    "path": "<Keyboard>/#(S)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "c8851120-e85e-4bd5-ac36-e594afa12812",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "RighStick",
                     "id": "3fd173da-b7de-4173-aad4-09ebc7c86937",
                     "path": "1DAxis",
@@ -87,6 +120,39 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";GamePad",
+                    "action": "Steering",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "e6d11c07-bfbb-496f-9471-759776097b95",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steering",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "80d4204d-0dd5-4bb7-a0bb-e5600aab2bea",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Steering",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "04c93b60-18dd-4341-b240-9a18367b3cf8",
+                    "path": "<Keyboard>/#(D)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
                     "action": "Steering",
                     "isComposite": false,
                     "isPartOfComposite": true
