@@ -26,6 +26,7 @@ public class boatcontoller : MonoBehaviour
     public GameObject IdleEffects;
     public bool idleEffects;
     public bool effects;
+    public WaterVFX waterVFX;
     private void Awake()
     {
         // Respect an inspector-assigned Rigidbody first
@@ -75,9 +76,7 @@ public class boatcontoller : MonoBehaviour
         worldtolocal = GetComponent<worldtolocal>();
         neededY = transform.rotation.y * 36;
         worldtolocal.useLocalY = neededY;
-        IdleEffects = GameObject.FindGameObjectWithTag("IdleEffects");
-        Effects = GameObject.FindGameObjectWithTag("Effects");
-
+       
       
        
         if (steering != 0 || throttle != 0)
@@ -89,14 +88,7 @@ public class boatcontoller : MonoBehaviour
             idleEffects = false;
         }
 
-        if (canMove == true && steering != 0 || canMove == true && throttle != 0)
-        {
-            effects = true;
-        }
-        else
-        {
-            effects = false;
-        }
+
     }
     private void FixedUpdate()
     {
@@ -124,9 +116,23 @@ public class boatcontoller : MonoBehaviour
 
             // Accelerating (relative to object). Keep existing axis (Vector3.up) if that is intended.
             rb.AddRelativeForce(Vector3.up * currentSpeed * Time.fixedDeltaTime);
+            
+            if ( steering != 0 || throttle != 0)
+            {
+                effects = true;
+            }
+            else
+            {
+                effects = false;
+            }
+        }
+        else if (canMove == false)
+        {
+            effects = false;
+            
         }
 
-      
+
 
     }
 }
