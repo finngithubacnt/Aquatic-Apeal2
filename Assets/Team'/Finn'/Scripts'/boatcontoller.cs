@@ -20,6 +20,7 @@ public class boatcontoller : MonoBehaviour
     public string direction = "forward";
     public worldtolocal worldtolocal;
     public bool canMove = false;
+    public GameObject Engine;
     private NewFloatingObject floatingObject;
     [Header("Effects")]
     public GameObject Effects;
@@ -61,7 +62,7 @@ public class boatcontoller : MonoBehaviour
     }
     public void Update()
     {
-        floatingObject = GetComponentInChildren<NewFloatingObject>();
+        floatingObject = Engine.GetComponent<NewFloatingObject>();
 
         if (floatingObject != null && floatingObject.isUnderwater)
         {
